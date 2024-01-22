@@ -275,7 +275,7 @@ if __name__ == "__main__":
     kl_loss_fn = kl_loss_fn.cuda()
 
     optim = torch.optim.SGD(
-        list(multimodal_model.parameters())+list(position_model.parameters()) + list(alignment_model.parameters()), lr=args.lr, momentum=0.9, weight_decay=5e-4
+        list(multimodal_model.parameters())+list(reorganization_module.parameters()) + list(alignment_model.parameters()), lr=args.lr, momentum=0.9, weight_decay=5e-4
     )
     if args.resume_training is True:
         optim.load_state_dict(checkpoint['optimizer'])
